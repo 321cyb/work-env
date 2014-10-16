@@ -8,4 +8,4 @@ echo "apt-get update"
 sudo apt-get update
 
 echo "install ag, tmux"
-sudo apt-get install -y silversearcher-ag tmux git mercurial exuberant-ctags  default-jdk dos2unix
+sudo apt-get install -y silversearcher-ag tmux git mercurial exuberant-ctags dos2unix

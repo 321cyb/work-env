@@ -8,6 +8,6 @@ sudo apt-key add rabbitmq-signing-key-public.asc
 rm rabbitmq-signing-key-public.asc
 
 sudo apt-get update
-sudo apt-get install rabbitmq-server
+sudo apt-get install -y rabbitmq-server
 
 sudo rabbitmq-plugins enable rabbitmq_management
