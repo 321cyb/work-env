@@ -1,0 +1,8 @@
+UnBundle 'mattn/gist-vim'
+UnBundle 'mattn/webapi-vim'
+UnBundle 'wting/rust.vim'
+UnBundle 'tpope/vim-cucumber'
+UnBundle 'cespare/vim-toml'
+UnBundle 'quentindecock/vim-cucumber-align-pipes'
+UnBundle 'saltstack/salt-vim'
+
