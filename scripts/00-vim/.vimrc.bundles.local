@@ -5,4 +5,7 @@ UnBundle 'tpope/vim-cucumber'
 UnBundle 'cespare/vim-toml'
 UnBundle 'quentindecock/vim-cucumber-align-pipes'
 UnBundle 'saltstack/salt-vim'
-
+UnBundle 'tpope/vim-abolish'
+UnBundle 'kana/vim-textobj-user'
+UnBundle 'kana/vim-textobj-indent'
+UnBundle 'gcmt/wildfire.vim'
