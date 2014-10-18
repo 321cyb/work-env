@@ -9,5 +9,5 @@ sudo npm install -g  http-Server
 sudo npm install -g  karma
 
 sudo apt-get install -y default-jdk
-sudo npm install -g  potractor
+sudo npm install -g  protractor
 
