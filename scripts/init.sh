@@ -20,3 +20,12 @@ sudo make install -C clvv-fasd-4822024
 rm -rf fasd.tar.gz clvv-fasd-4822024
 echo 'eval "$(fasd --init auto)"' >> $HOME/.bashrc
 echo "added fasd to ~/.bashrc"
+
+
+cat >> ~/.bash_profile << EOF
+if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+fi
+
+EOF
+
