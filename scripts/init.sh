@@ -8,7 +8,7 @@ echo "apt-get update"
 sudo apt-get update
 
 echo "install ag, tmux"
-sudo apt-get install -y silversearcher-ag tmux git mercurial exuberant-ctags dos2unix curl
+sudo apt-get install -y silversearcher-ag tmux git mercurial exuberant-ctags dos2unix make  build-essential curl
 
 git config --global push.default current
 
@@ -20,3 +20,12 @@ sudo make install -C clvv-fasd-4822024
 rm -rf fasd.tar.gz clvv-fasd-4822024
 echo 'eval "$(fasd --init auto)"' >> $HOME/.bashrc
 echo "added fasd to ~/.bashrc"
+
+
+cat >> ~/.bash_profile << EOF
+if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+fi
+
+EOF
+
