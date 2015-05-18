@@ -1,0 +1,12 @@
+---
+# tasks file for spf13
+
+- name: Copy my spf13 vim configuration files.
+  copy: src={{item}} dest=~/{{item}}
+  with_items:
+    - .vimrc.local
+    - .vimrc.before.local
+    - .vimrc.bundles.local
+
+- name: Install spf13 vim
+  shell: curl http://j.mp/spf13-vim3 -L -o - | sh

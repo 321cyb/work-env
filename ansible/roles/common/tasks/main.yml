@@ -1,0 +1,30 @@
+---
+# tasks file for common
+
+- name: make sudo password less.
+  sudo: yes
+  lineinfile: "dest=/etc/sudoers state=present regexp='^%sudo' line='%sudo ALL=(ALL:ALL) NOPASSWD: ALL'"
+
+- name: install essential packages
+  sudo: yes
+  apt: name={{ item }} state=present update_cache=yes
+  with_items:
+    - git
+    - vim
+    - tmux
+    - build-essential
+    - nginx
+    - make
+    - curl
+    - mercurial
+    - silversearcher-ag
+    - exuberant-ctags
+    - dos2unix
+
+- name: configure git push.default
+  sudo: no
+  command: git config --global push.default current
+
+- name: let ~/.bash_profile include ~/.bashrc
+  sudo: no
+  lineinfile: create=yes dest=~/.bash_profile state=present regexp=".*\. ~/\.bashrc.*"  line="if [ -f ~/.bashrc ]; then . ~/.bashrc; fi"

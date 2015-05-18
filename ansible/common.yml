@@ -1,0 +1,9 @@
+# basic stuff, vim, golang
+#
+
+- hosts: localhost
+  roles:
+      - common
+      - python
+      - spf13
+      - golang
