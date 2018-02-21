@@ -1,0 +1,9 @@
+---
+# tasks file for common
+
+- name: Install Spice vdagent and QXL driver
+  become: yes
+  apt: name={{ item }} state=present update_cache=yes
+  with_items:
+    - spice-vdagent
+    - xserver-xorg-video-qxl

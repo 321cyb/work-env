@@ -8,5 +8,14 @@
     - .vimrc.before.local
     - .vimrc.bundles.local
 
-- name: Install spf13 vim
-  shell: curl http://j.mp/spf13-vim3 -L -o - | sh
+- name: download spf13 vim install script
+  get_url: 
+      url: https://j.mp/spf13-vim3
+      dest: /tmp/spf13-vim.sh
+
+- stat: path=~/.spf13-vim-3/
+  register: spf13_vim_folder
+
+- name: install spf13 vim
+  command: bash /tmp/spf13-vim.sh
+  when: spf13_vim_folder.stat.exists == False

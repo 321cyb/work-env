@@ -2,9 +2,10 @@ set fileencodings=utf-8,gbk,ucs-bom,latin1
 map <F8> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
 unmap <C-e>
 set mouse=""
+let mapleader=","
 let g:go_fmt_command = "goimports"
-let g:spf13_keep_trailing_whitespace = 1
 
-
-colorscheme google
-
+"Enable true color
+set termguicolors
+set background=dark
+colorscheme dracula

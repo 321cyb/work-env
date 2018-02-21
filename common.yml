@@ -1,9 +1,35 @@
-# basic stuff, vim, golang
+# My work env setup for Ubuntu
 #
 
-- hosts: localhost
-  roles:
-      - common
-      - python
-      - spf13
-      - golang
+- hosts: all
+  tasks:
+    - name: install some basic stuff such as vim, git, golang, ag ...
+      include_role: 
+          name: common
+
+    - name: install spf13 vim disto
+      include_role: 
+          name: spf13
+
+    - name: install vscode
+      become: true
+      include_role: 
+          name: ngetchell.vscode
+
+
+    - name: install vscode plugins(right now only golang)
+      include_role: 
+          name: vscode.plugins
+
+
+    - name: install spice on guest
+      become: true
+      include_role: 
+          name: spice.server
+
+
+    - name: install intellij
+      become: true
+      include_role: 
+          name: my.intellij
+
