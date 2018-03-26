@@ -44,7 +44,7 @@
       mode: 0755
 
 # sbt stuff from https://www.scala-sbt.org/1.x/docs/Installing-sbt-on-Linux.html
-- name: Add an apt key by id from a keyserver
+- name: Add sbt repo apt key by id from a keyserver
   become: yes
   apt_key:
     keyserver: keyserver.ubuntu.com

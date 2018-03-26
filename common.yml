@@ -2,34 +2,11 @@
 #
 
 - hosts: all
-  tasks:
-    - name: install some basic stuff such as vim, git, golang, ag ...
-      include_role: 
-          name: common
-
-    - name: install spf13 vim disto
-      include_role: 
-          name: spf13
-
-    - name: install vscode
-      become: true
-      include_role: 
-          name: ngetchell.vscode
-
-
-    - name: install vscode plugins(right now only golang)
-      include_role: 
-          name: vscode.plugins
-
-
-    - name: install spice on guest
-      become: true
-      include_role: 
-          name: spice.server
-
-
-    - name: install intellij
-      become: true
-      include_role: 
-          name: my.intellij
-
+  roles:
+      - {role: common}
+      - {role: tracing-tools}
+      - {role: spf13}
+      - {role: ngetchell.vscode, become: yes}
+      - {role: vscode.plugins}
+      - {role: spice.server, become: yes}
+      - {role: my.intellij, become: yes}

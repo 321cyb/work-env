@@ -1,0 +1,38 @@
+---
+# tasks file for common
+
+
+# Install perf
+
+- name: Install perf
+  become: yes
+  apt: 
+      name: "{{ item }}"
+      state: present
+  loop:
+      - linux-tools-common
+      - linux-tools-generic
+
+# bcc stuff from https://github.com/iovisor/bcc/blob/master/INSTALL.md
+- name: Add bcc repo apt key by id from a keyserver
+  become: yes
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: D4284CDD
+
+# TODO: update repo URL as needed
+- name: Add bcc Repo
+  become: yes
+  apt_repository:
+      repo: 'deb https://repo.iovisor.org/apt/xenial xenial main'
+      state: present
+
+- name: Install bcc-tools
+  become: yes
+  apt: 
+      name: "{{ item  }}"
+      state: present
+  loop:
+      - bcc-tools
+      - libbcc-examples
+      - "linux-headers-{{ ansible_kernel }}"
