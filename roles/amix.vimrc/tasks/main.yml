@@ -1,0 +1,27 @@
+---
+# tasks file for spf13
+
+
+- stat: path=~/.vim_runtime/
+  register: amix_vimrc_folder
+
+- name: download amix/vimrc repo
+  git:
+      repo: 'https://github.com/amix/vimrc.git'
+      dest:  ~/.vim_runtime
+
+- name: download vim-scripts/Local-configuration repo
+  git:
+      repo: 'https://github.com/vim-scripts/Local-configuration.git'
+      dest:  ~/.vim_runtime/my_plugins/
+
+- name: run amix vimrc install script
+  command: bash ~/.vim_runtime/install_awesome_vimrc.sh
+  when: amix_vimrc_folder.stat.exists == False
+
+- name: run amix vimrc install script
+  command: bash ~/.vim_runtime/install_awesome_vimrc.sh
+  when: amix_vimrc_folder.stat.exists == False
+
+- name: Copy my_configs.vim configuration file.
+  copy: src=my_configs.vim dest=~/.vim_runtime/my_configs.vim
