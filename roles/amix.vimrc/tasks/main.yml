@@ -13,7 +13,7 @@
 - name: download vim-scripts/Local-configuration repo
   git:
       repo: 'https://github.com/vim-scripts/Local-configuration.git'
-      dest:  ~/.vim_runtime/my_plugins/
+      dest:  ~/.vim_runtime/my_plugins/Local-configuration
 
 - name: run amix vimrc install script
   command: bash ~/.vim_runtime/install_awesome_vimrc.sh
