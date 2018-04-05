@@ -19,9 +19,5 @@
   command: bash ~/.vim_runtime/install_awesome_vimrc.sh
   when: amix_vimrc_folder.stat.exists == False
 
-- name: run amix vimrc install script
-  command: bash ~/.vim_runtime/install_awesome_vimrc.sh
-  when: amix_vimrc_folder.stat.exists == False
-
 - name: Copy my_configs.vim configuration file.
   copy: src=my_configs.vim dest=~/.vim_runtime/my_configs.vim
