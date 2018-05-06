@@ -3,5 +3,5 @@
 
 - name: install VSCode Go plugin.
   become: no
-  command: code --install-extension lukehoban.Go
+  command: code --install-extension ms-vscode.Go
 
