@@ -46,22 +46,22 @@
   tags: ["packages","intellij"]
   when: intellij_install_dir_stat.stat.exists == False
 
-- name: Retreive intellij dir name
-  command: ls -t {{intellij_install_dir}}
-  register: result_intellij_folder_name
-  tags: ["configuration","intellij"]
-  when: intellij_install_dir_stat.stat.exists == False
+#- name: Retreive intellij dir name
+#  command: ls -t {{intellij_install_dir}}
+#  register: result_intellij_folder_name
+#  tags: ["configuration","intellij"]
+#  when: intellij_install_dir_stat.stat.exists == False
 
 #- name: Ensure intellij is configured
 #  template: src=idea.properties.j2 dest={{intellij_install_dir}}/{{intellij_folder_name}}/bin/idea.properties
 #  tags: ["configuration","intellij"]
 
-- name: Ensure intellij bin exist
-  template: src=intellij.j2 dest=/usr/bin/intellij mode=755
-  tags: ["configuration","intellij"]
-  when: intellij_install_dir_stat.stat.exists == False
+#- name: Ensure intellij bin exist
+#template: src=intellij.j2 dest=/usr/bin/intellij mode=755
+#tags: ["configuration","intellij"]
+#when: intellij_install_dir_stat.stat.exists == False
 
-- name: Ensure intellij shortcut is present
-  template: src=intellij.desktop.j2 dest=/usr/share/applications/intellij.desktop
-  tags: ["configuration","intellij"]
-  when: intellij_install_dir_stat.stat.exists == False
+#- name: Ensure intellij shortcut is present
+#  template: src=intellij.desktop.j2 dest=/usr/share/applications/intellij.desktop
+#  tags: ["configuration","intellij"]
+#  when: intellij_install_dir_stat.stat.exists == False
