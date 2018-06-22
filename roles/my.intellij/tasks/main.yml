@@ -46,6 +46,17 @@
   tags: ["packages","intellij"]
   when: intellij_install_dir_stat.stat.exists == False
 
+#- stat: path=/usr/bin/gsettings
+#  register: gsettings_bin_stat
+
+# https://www.jetbrains.com/help/idea/configuring-keyboard-and-mouse-shortcuts.html lists some conflicts.
+# Seems like Ctrl+Alt+S and Ctrl+Alt+L do not have conflicts on Ubuntu 18.04
+#- name: Remove ubuntu hotkeys to avoid conflict
+#  shell: gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-left "[]" && gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-right "[]" && gsettings set org.gnome.desktop.wm.keybindings begin-move "[]" && gsettings set org.gnome.desktop.wm.keybindings begin-resize "[]"
+#  args:
+#      executable: /bin/bash
+#  when: gsettings_bin_stat.stat.exists == True
+
 #- name: Retreive intellij dir name
 #  command: ls -t {{intellij_install_dir}}
 #  register: result_intellij_folder_name
