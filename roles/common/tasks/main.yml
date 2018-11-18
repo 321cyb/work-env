@@ -16,23 +16,10 @@
 
 - name: install essential packages
   become: yes
-  apt: name={{ item }} state=present update_cache=yes
-  with_items:
-    - build-essential
-    - make
-    - curl
-    - silversearcher-ag
-    - dos2unix
-    - default-jdk
-    - default-jre-headless
-    - git
-    - mercurial
-    - vim
-    - tmux
-    - nginx
-    - supervisor
-    - golang
-    - net-tools
+  apt:
+    name: ['build-essential', 'make', 'curl', 'silversearcher-ag', 'dos2unix', 'default-jdk', 'git', 'vim', 'tmux', 'nginx', 'supervisor', 'golang', 'net-tools', 'sysstat', 'aptitude']
+    state: present
+    update_cache: yes
 
 - name: configure git push.default
   command: git config --global push.default simple
@@ -47,7 +34,7 @@
 - name: Add sbt repo apt key by id from a keyserver
   become: yes
   apt_key:
-    keyserver: keyserver.ubuntu.com
+    keyserver: hkp://keyserver.ubuntu.com:80
     id: 2EE0EA64E40A89B84B2DF73499E82A75642AC823
 
 - name: Add SBT Repo

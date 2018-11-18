@@ -1,2 +1,2 @@
 [desktop]
-192.168.3.27 ansible_python_interpreter=/usr/bin/python3
+localhost ansible_connection=local  ansible_python_interpreter=/usr/bin/python3
