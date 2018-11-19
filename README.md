@@ -3,18 +3,31 @@ work-env
 
 Setup my work environment, only supports Ubuntu.
 
+Run on local machine
+======
+
 Before running, make sure 
 
-    1. user yabo exists or change ansible.cfg file's remote_user to match.
-    2. ssh is properly setup if it's not local machine.
-    3. Then modify hosts file for your need, leave only the first line and modify IP address. OR leave only the second line if running on local machine.
-    4. Then modify common.yml file to remove unneeded parts.
+1. user yabo exists or change ansible.cfg file's remote_user to match.
+2. Then modify hosts file,  leave only the second line with local connection.
+3. Then modify common.yml file to remove unneeded parts.
 
-Finally run the following for remote computer:
-```
-    ansible-playbook common.yml -k --ask-become-pass -vvv
-```
-or if on local machine:
+Finally run:
 ```
     ansible-playbook common.yml --ask-become-pass -vvv
+```
+
+Run on remote machine
+======
+
+Before running, make sure 
+
+1. user yabo exists or change ansible.cfg file's remote_user to match.
+2. ssh is properly setup.
+3. Then modify hosts file, leave only the first line and modify IP address.
+4. Then modify common.yml file to remove unneeded parts.
+
+Finally run:
+```
+    ansible-playbook common.yml -k --ask-become-pass -vvv
 ```

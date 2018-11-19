@@ -17,7 +17,7 @@
 - name: Add bcc repo apt key by id from a keyserver
   become: yes
   apt_key:
-    keyserver: keyserver.ubuntu.com
+    keyserver: hkp://keyserver.ubuntu.com:80
     id: D4284CDD
 
 # TODO: update repo URL as needed
