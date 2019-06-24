@@ -21,6 +21,10 @@
     state: present
     update_cache: yes
 
+- name: copy .tmux.conf file
+  copy: src=.tmux.conf dest=~/.tmux.conf
+
+
 - name: configure git push.default
   command: git config --global push.default simple
 
